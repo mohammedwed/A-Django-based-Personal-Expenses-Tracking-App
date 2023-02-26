@@ -1,0 +1,89 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+
+	 {% comment %} <link rel="stylesheet" type="text/css" href=try.css> {% endcomment %}
+    <link rel="stylesheet" type="text/css" href="{% static 'addmoney.css' %}">
+			<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+ <title>
+	 My Wallet
+			</title>
+        
+    </head>
+	<body>
+<div class="bg-image"></div>
+
+<div class="bg-text">
+	 
+        <div id="layoutAuthentication">
+            <div id="layoutAuthentication_content">
+                <main>
+                    <div class="container2">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-5">
+                                <div class="card shadow-lg border-0 rounded-lg mt-5">
+                                    <div class="card-header"><h1 class="text-center font-weight-light my-4">My Wallet</h1></div>
+                                    <form method="post" action="/addmoney_submission/">
+                                    {% csrf_token %}
+                  
+																			
+                   <div class="form-check">
+										 What you want to add?<br>
+										<label class="form-check-label" for="add_money">
+                  <input class="form-check-input" type="radio" name="add_money" id="add_money" value="Expense" checked required>
+										Expense 
+										</label>
+                 
+										 <label class="form-check-label" for="add_money">
+                  <input class="form-check-input" type="radio" name="add_money" id="add_money" value="Income" checked required>
+                 Income</label>
+																			</div>	
+									
+			
+		<div>							
+  <label for="quantity">Amount:</label><br>
+  <input type="number" name="quantity" required><br>
+  <br>
+			</div>
+																	
+										<div>
+  <label>
+    Expense Date:
+    <input type="date" name="Date">
+  </label><br>
+										</div>
+										<div>
+	<div class="f1">
+		Select category-<br>
+	<select class="Category" name="Category" required><br>
+  <option value="Food">Food</option>
+  <option value="Travel">Travel</option>
+  <option value="Shopping">shopping</option>
+	<option value="Necessities">Necessities</option>
+	<option value="Entertainment">Entertainment</option>
+	<option value="Others">Others</option>
+		
+</select><br>
+											</div>
+																	</div>
+										<div class="btn">
+  <button type="submit" class="b2" href='/addmoney'> Submit </button>
+										</div>
+	<!--<input type="button" class="b2"  onclick="location.href='/addmoney'" value="submit!">-->
+</form>
+																	
+															</div>
+													</div>
+										
+													
+											</div>
+									</div>
+	
+							</main>
+					</div>
+	</div>
+		</div>
+	</body>
+</html>

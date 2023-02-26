@@ -1,0 +1,72 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+				<link href="css/addmoney.css" rel="stylesheet" />
+
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title><h1>My Wallet</h1></title>
+        <link rel="stylesheet" type="text/css" href="{% static 'home.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'addmoney.css' %}">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" crossorigin="anonymous"></script>
+    </head>
+    <body class="bg-primary">
+        <div id="layoutAuthentication">
+            <div id="layoutAuthentication_content">
+                <main>
+                    <div class="container2">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-5">
+                                <div class="card shadow-lg border-0 rounded-lg mt-5">
+                                    <div class="card-header"><h3 class="text-center font-weight-light my-4">My Wallet</h3></div>
+                                    <form method="post" action="{% url 'addmoney_update' addmoney_info.id %}">
+                                    {% csrf_token %}
+                  Edit <br>
+                  <div class="form-check">
+                  <input class="form-check-input" type="radio" name="add_money" id="add_money" value="{{addmoney_info.add_money}}" checked required>
+                  <label class="form-check-label" for="add_money"> Expense 
+                  </div>
+                  </label>
+                  <div class="form-check">
+                  <input class="form-check-input" type="radio" name="add_money" id="add_money" value="{{addmoney_info.add_money}}" checked required>
+                  <label class="form-check-label" for="add_money">Income</label>
+                  </div>
+																	<!--<form class="r1" method="post" action="\addmoney_submission\">
+                                  {% csrf_token %}
+	What you want to add?<br>
+  <input type="radio" name="add_money" value="Expense">
+  <label for="Expense">Expense</label>
+  <input type="radio" name="add_money" value="Income">
+  <label for="Income">Income</label><br>-->
+  <label for="quantity">Amount:</label><br>
+  <input type="number" name="quantity" value="{{addmoney_info.quantity}}"required><br>
+  <br>
+  <label>
+    Expense Date:
+    <input type="date" name="Date" value="{{addmoney_info.Date}}">
+  </label><br>
+	<div class="f1">
+		Select category-<br>
+	<select class="Category" name="Category" value="{{addmoney_info.Category}}" required><br>
+  <option value="Food">Food</option>
+  <option value="Travel">Travel</option>
+  <option value="Shopping">shopping</option>
+	<option value="Necessities">Necessities</option>
+	<option value="Entertainment">Entertainment</option>
+	<option value="Others">Others</option>
+		
+</select><br>
+																	</div>
+  <button type="submit" class="b2"> Save </button>
+	<!--<input type="button" class="b2"  onclick="location.href='/addmoney'" value="submit!">-->
+
+																	</div>
+											
+													</div>
+											</div></div></main></div></div></form>
+    </body>
+</html>
